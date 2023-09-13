@@ -38,6 +38,17 @@ function App() {
     setEmail('');
     setPhone('');
   };
+    // Handle contact deletion
+    const handleDeleteContact = (index) => {
+      // Create a copy of the current contacts array
+      const updatedContacts = [...contacts];
+      // Remove the contact at the specified index
+      updatedContacts.splice(index, 1);
+      // Update the state with the updated contacts
+      setContacts(updatedContacts);
+    };
+
+    
 
   return (
     <div>
@@ -60,6 +71,7 @@ function App() {
               <p>Name: {contact.name}</p>
               <p>Email: {contact.email}</p>
               <p>Phone: {contact.phone}</p>
+              <button onClick={() => handleDeleteContact(index)}>Delete</button>
             </li>
           ))}
         </ul>
